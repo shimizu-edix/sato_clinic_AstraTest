@@ -1,0 +1,33 @@
+{
+  "checks": [
+    "index.html",
+    "news/index.html",
+    "news/detail.html",
+    "medical/index.html",
+    "about/index.html",
+    "access/index.html",
+    "faq/index.html",
+    "first-visit/index.html",
+    "reservation/index.html",
+    "reservation/slots/index.html",
+    "reservation/form/index.html",
+    "reservation/confirm/index.html",
+    "reservation/complete/index.html",
+    "auth/register/index.html",
+    "auth/register/confirm.html",
+    "auth/register/complete.html",
+    "auth/login/index.html",
+    "member/index.html",
+    "member/history/index.html",
+    "member/reservation-detail/index.html",
+    "admin/login/index.html",
+    "admin/index.html",
+    "admin/reservations/index.html",
+    "admin/slots/index.html",
+    "admin/news/index.html",
+    "admin/members/index.html"
+  ],
+  "errors": [],
+  "overflow": [],
+  "links": []
+}

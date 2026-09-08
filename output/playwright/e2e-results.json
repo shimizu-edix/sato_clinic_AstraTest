@@ -1,0 +1,14 @@
+{
+  "results": [
+    "E2E-01 PASS: Public → slots → login → validation → form → confirm → complete → member",
+    "E2E-04 PASS: Admin status → Member/dashboard/detail",
+    "E2E-02 PASS: Admin close/open/capacity → patient other tab",
+    "AC26 PASS: save-time conflict fails, values recover",
+    "E2E-03 PASS: draft → published → top/list/detail, source seed protected, escaped content",
+    "AC29/30/37 PASS: change/cancel/history and reload persistence",
+    "E2E-05 / AC27/28 PASS: Mobile TOP → slot → register → confirm → complete → booking → member; no password stored",
+    "AC28/36/37 PASS: member search/suspend, persistence, logout",
+    "AC34 PASS: BroadcastChannel disabled → storage fallback updates patient"
+  ],
+  "errors": []
+}

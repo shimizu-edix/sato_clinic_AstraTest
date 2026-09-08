@@ -1,0 +1,7 @@
+[
+  "BroadcastChannel-only patient update (storage listener suppressed) PASS",
+  "Capacity below booked count rejected PASS",
+  "Protected news seed duplicated without altering originals PASS",
+  "Corrupt localStorage error UI PASS",
+  "Both source DOCX text runs match corresponding source HTML PASS"
+]

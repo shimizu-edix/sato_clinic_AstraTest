@@ -1,0 +1,11 @@
+[
+  "Keyboard skip link, mobile menu Enter/Tab/Escape/focus restore PASS",
+  "All 11 source FAQ + supplemental FAQ keyboard PASS",
+  "Keyboard slot/login/form/confirm and visible focus PASS",
+  "Keyboard admin slot select/save PASS",
+  "Reduced motion disables animation and smooth scrolling PASS",
+  "All public pages JS-off basic text/navigation, native FAQ PASS",
+  "390px + 200% root/body text reflow representative pages PASS",
+  "Subpath static assets, dynamic module links and slot render PASS",
+  "Source exact medical/FAQ/about/staff/greeting and TOP order/count PASS"
+]

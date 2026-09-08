@@ -1,0 +1,2 @@
+const {existing}=require('./env.cjs');const fs=require('node:fs');
+(async()=>{const browser=await existing('playwright').chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true});fs.mkdirSync('output/playwright',{recursive:true});for(const w of [1440,390]){const page=await browser.newPage({viewport:{width:w,height:1000},deviceScaleFactor:1});await page.goto('http://127.0.0.1:4173');await page.screenshot({path:`output/playwright/top-${w}.png`,fullPage:true});await page.close()}await browser.close()})();
