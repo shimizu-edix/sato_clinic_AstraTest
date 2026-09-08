@@ -1,0 +1,8 @@
+import {sourceNews} from '../../content/news.js';
+export const DEMO_CONFIG=Object.freeze({days:28,intervalMinutes:15,capacity:2,service:'一般診療（デモ）'});
+export const dateKey=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+export function createSeed(){const today=new Date();today.setHours(0,0,0,0);const slots=[];for(let i=0;i<DEMO_CONFIG.days;i++){const d=new Date(today);d.setDate(d.getDate()+i);if([0,4].includes(d.getDay()))continue;for(let m=540;m<1080;m+=DEMO_CONFIG.intervalMinutes){if(m>=720&&m<780||d.getDay()===6&&m>=720)continue;const date=dateKey(d),time=`${String(Math.floor(m/60)).padStart(2,'0')}:${String(m%60).padStart(2,'0')}`;slots.push({id:date+'_'+time.replace(':',''),date,time,capacity:DEMO_CONFIG.capacity,open:true});}}
+ const future=slots.filter(s=>new Date(s.date+'T'+s.time)>new Date());if(future[2])future[2].open=false;
+ const reservations=[];for(let i=0;i<3;i++){const slot=future[i===2?1:0];if(slot)reservations.push({id:'seed-'+i,memberId:i===2?'demo-member':'sample-member',slotId:slot.id,date:slot.date,time:slot.time,patient:i===2?'デモ 花子':'サンプル 太郎',phone:'0000000000',visit:'再診',status:'confirmed'});}
+ const past=new Date(today);past.setDate(past.getDate()-20);reservations.push({id:'seed-history',memberId:'demo-member',date:dateKey(past),time:'10:00',patient:'デモ 花子',visit:'再診',status:'visited',slotId:'history'});
+ return {version:1,slots,reservations,members:[{id:'demo-member',name:'デモ 花子',email:'demo@example.com',phone:'0000000000',status:'active'},{id:'sample-member',name:'サンプル 太郎',email:'sample@example.com',phone:'0000000000',status:'active'}],news:sourceNews.map(x=>({...x}))};}
