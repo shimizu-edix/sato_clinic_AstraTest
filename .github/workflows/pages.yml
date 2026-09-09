@@ -1,0 +1,49 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+
+      - name: Check static entry point
+        run: test -f src/index.html
+
+      # Enable Pages in repository Settings first; do not enable it automatically.
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      # Publish the committed static site only. No build or package install needed.
+      - name: Upload site
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: src
+
+      - name: Deploy site
+        id: deployment
+        uses: actions/deploy-pages@v5
